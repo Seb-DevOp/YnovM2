@@ -1,6 +1,6 @@
 # YnovM2
 
-🧱 Projet Conteneurisation / Orchestration
+----- 🧱 Projet Conteneurisation / Orchestration ------
 🎯 Objectif
 
 Utiliser Google Cloud Platform (GCP) dans une approche orientée certification Cloud Engineer, tout en construisant une infrastructure Cloud moderne, automatisée et sécurisée.
@@ -17,7 +17,7 @@ CI/CD : GitHub Actions
 
 Monitoring : Zabbix + Cloud Logging & Monitoring
 
-🧩 Résumé du Projet — Stack GCP Complète
+------ 🧩 Résumé du Projet — Stack GCP Complète ------
 
 Ce projet vise à créer une infrastructure complète sur GCP, entièrement automatisée via Terraform, pour déployer une stack applicative de type production.
 
@@ -45,7 +45,7 @@ Un VPC isolé avec Load Balancer HTTPS pour l’accès public.
 
 👉 Le projet met en œuvre les piliers du Cloud Engineer GCP : Compute, Networking, IAM, Monitoring et Infrastructure-as-Code.
 
-🪜 Étapes du Projet (de A à Z)
+ ------ 🪜 Étapes du Projet (de A à Z) ------
 0️⃣ Pré-requis & Cadrage
 
 Compte GCP avec facturation activée
@@ -66,7 +66,7 @@ Région : europe-west1
 
 Type GKE : Autopilot (recommandé pour la certif)
 
-1️⃣ Bootstrap de la Fondation GCP (Terraform)
+------ 1️⃣ Bootstrap de la Fondation GCP (Terraform) ------
 🎯 Objectif
 
 Créer les briques partagées et sécuriser la base.
@@ -90,7 +90,7 @@ Secret Manager : secrets placeholders
 Livrable : infra/bootstrap
 Validation : terraform plan/apply propre + VPC visible
 
-2️⃣ Cluster Kubernetes (GKE) & Sécurité d’accès
+------ 2️⃣ Cluster Kubernetes (GKE) & Sécurité d’accès ------
 🎯 Objectif
 
 Cluster prêt pour la production, sécurisé et monitoré.
@@ -106,7 +106,7 @@ Ingress : HTTP(S) Load Balancer (ManagedCertificate)
 Livrable : infra/gke
 Validation : kubectl get nodes OK, Workload Identity fonctionnelle
 
-3️⃣ Base de Données Managée (Cloud SQL)
+------ 3️⃣ Base de Données Managée (Cloud SQL) ------
 🎯 Objectif
 
 Fournir une DB sécurisée en réseau privé.
@@ -120,7 +120,7 @@ Secrets dans Secret Manager
 Livrable : infra/cloudsql
 Validation : Pod smoke-test → SELECT 1 OK
 
-4️⃣ Observabilité & Supervision (Zabbix + Cloud Ops)
+------ 4️⃣ Observabilité & Supervision (Zabbix + Cloud Ops) ------
 🎯 Objectif
 
 Monitoring complet multi-niveaux.
@@ -134,7 +134,7 @@ UI exposée via Ingress interne (auth restreinte)
 Livrable : platform/zabbix/values-<env>.yaml
 Validation : alertes Slack/mails fonctionnelles
 
-5️⃣ Pipeline CI/CD (GitHub Actions ↔ GCP)
+------ 5️⃣ Pipeline CI/CD (GitHub Actions ↔ GCP) ------
 🎯 Objectif
 
 Automatiser build/test/deploy sans clés JSON.
@@ -168,7 +168,7 @@ jobs:
           gcloud auth configure-docker europe-docker.pkg.dev -q
           docker push europe-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/apps/web:${{ github.sha }}
 
-6️⃣ Application JS Basique
+------ 6️⃣ Application JS Basique ------
 🎯 Objectif
 
 Valider la chaîne de déploiement.
@@ -180,7 +180,7 @@ K8s : Deployment, Service, Ingress, HPA, PDB, NetworkPolicy
 Livrable : apps/web/ + k8s/overlays/{dev,stg,prod}
 Validation : curl https://app.dev.example.com/healthz → 200
 
-7️⃣ Réseau & Exposition Publique
+------ 7️⃣ Réseau & Exposition Publique ------
 🎯 Objectif
 
 Accès externe sécurisé.
@@ -193,7 +193,7 @@ Cloud Armor (optionnel) : OWASP ruleset
 
 Validation : HTTPS actif, redirection OK
 
-8️⃣ Sécurité, IAM & Secrets
+------ 8️⃣ Sécurité, IAM & Secrets ------
 🎯 Objectif
 
 Principe du moindre privilège.
@@ -212,7 +212,7 @@ Rotation périodique des secrets
 
 Labels et budgets configurés
 
-9️⃣ Coûts & Étiquetage
+------ 9️⃣ Coûts & Étiquetage ------
 
 Budgets GCP + alertes 50/80/100%
 
@@ -220,7 +220,7 @@ Labels : env, app, owner, cost-center
 
 Optimisations : Autopilot, classes Storage régionales
 
-🔟 Tests, SLOs & Runbooks
+------ 🔟 Tests, SLOs & Runbooks ------
 
 SLO : Dispo 99.5%, p95 latence, <1% erreurs 5xx
 
@@ -228,7 +228,7 @@ Tests : Liveness/Readiness + e2e (k6 ou curl loop)
 
 Runbooks : rollback, crashloop, DB indispo
 
-1️⃣1️⃣ Documentation & Livrables Finaux
+------ 1️⃣1️⃣ Documentation & Livrables Finaux ------
 
 README principal (diagrammes, flux CI/CD, URLs)
 
